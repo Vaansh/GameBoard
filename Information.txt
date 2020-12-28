@@ -1,0 +1,20 @@
+Time complexity
+Recursive: O(n^2) 
+Iterative: O(n^2) 
+Worst case: 
+Go through entire matrix - n^2
+O(edges+vertices)
+DFS (Depth First Search)
+
+Memory complexity
+Recursive: O(n^2)
+Iterative: O(n^2)
+Worst case: 
+O(h) - h is height of the tree
+DFS (Depth First Search)
+
+Multi recursive method used. Time and memory complexity can be optimized by using a binary, linear, tail recursive solution.
+
+Stack because of easier implementation (LIFO) and more comfortable. Use DFS so stack, queue is used for BFS.
+
+Default statement is to return false, which is reached only when the board is unsolvable.

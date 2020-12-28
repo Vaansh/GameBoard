@@ -1,0 +1,144 @@
+Recursive version:
+
+ALGORITHM magic(b, x, y, goingthere)
+INPUT board b (2d array) starting coordinates x,y and empty going there array list to keep track of path.
+OUTPUT True/false value of the board being solvable.
+
+	DECLARE d,coord
+	d←b.length;		
+	coord←{x,y};
+		
+	IF((x>=d OR x<=-1) OR (y>=d OR y<=-1)) 
+			RETURN FALSE
+	ENDIF
+		
+	circle←b[x][y]
+	IF (circle=0) 
+		RETURN TRUE
+	ENDIF
+						
+	IF((goingthere.size()=0 OR !inAlist(goingthere,coord,0))) 
+		goingthere.add(coord)			
+		
+		DECLARE up,down,left,right
+		u←x-circle;
+		down←x+circle;			
+		left←y-circle;
+		right←y+circle;
+			
+		IF(down<b.length) 
+			IF(magic(b,down,y, goingthere)) 
+				RETURN TRUE
+			ENDIF
+		ENDIF
+	
+			
+		IF(up>-1) {
+			IF(magic(b,up,y,goingthere))
+				RETURN TRUE
+			ENDIF
+		ENDIF
+		
+		IF(right<b.length) 
+			IF(magic(b,x,right,goingthere))
+				RETURN TRUE
+			ENDIF
+		ENDIF
+		
+		IF(left>-1) 
+			IFmagic(b,x,left,goingthere))
+				RETURN TRUE
+			ENDIF
+		ENDIF
+	ENDIF
+		
+	return false;
+	
+
+Iterative version:
+
+ALGORITHM magic(b, x, y, goingthere)
+INPUT board b (2d array) starting coordinates x,y and empty going there array list to keep track of path.
+OUTPUT True/false value of the board being solvable.
+	
+	DECLARE frameStack, d, circle
+		
+	d=b.length	
+	circle=b[x][y]		
+	IF(circle=0)
+		RETURN TRUE
+	ENDIF
+		
+	DECLARE nextFrame
+	frameStack.push(nextFrame)
+
+	WHILE(!frameStack.isEmpty()) 
+	DO						
+		INITIALIZE tempFrame←frameStack.peek()
+		DECLARE newFrame
+			
+		DECLARE Xcoord, Ycoord, XYvalue
+		Xcoord=←tempFrame.getXcoord()
+		Ycoord←tempFrame.getYcoord()
+		XYvalue←tempFrame.getXYvalue()
+			
+		INITIALIZE direction ← tempFrame.getdirection()
+		goingthere.add(new Integer[] {Xcoord,Ycoord})
+			
+	
+		IF(tempFrame.direction.size()=0) 
+			frameStack.pop();	
+			goingthere.remove(goingthere.size()-1)
+			CONTINUE
+		ENDIF
+
+		INITIALIZE lastdirection ← direction.get(direction.size()-1)
+		tempFrame.deleteLastDir()
+			
+		IF(lastdirection='n') 
+			IF(b[Xcoord-XYvalue][Ycoord]=0) 
+					RETURN TRUE			
+				IF(!inAlist(goingthere,new Integer[] {Xcoord-XYvalue,Ycoord},0)) 
+					newFrame ← new frame(Xcoord-XYvalue,Ycoord,b[Xcoord-XYvalue][Ycoord],getDirections(Xcoord-XYvalue, Ycoord, b[Xcoord-XYvalue][Ycoord], d, goingthere),goingthere)
+					frameStack.push(newFrame)
+					CONTINUE
+				ENDIF
+			ENDIF
+		ENDIF
+			
+		IF(lastdirection='s') 
+			IF(b[Xcoord+XYvalue][Ycoord]=0) 
+					RETURN TRUE			
+				IF(!inAlist(goingthere,new Integer[] {Xcoord+XYvalue,Ycoord},0)) 
+					newFrame ← new frame(Xcoord+XYvalue,Ycoord,b[Xcoord+XYvalue][Ycoord],getDirections(Xcoord+XYvalue, Ycoord, b[Xcoord+XYvalue][Ycoord], d, goingthere),goingthere)
+					frameStack.push(newFrame)
+					CONTINUE
+				ENDIF
+			ENDIF
+		ENDIF
+		
+		IF(lastdirection='e') 
+			IF(b[Xcoord][Ycoord]=0) 
+					RETURN TRUE			
+				IF(!inAlist(goingthere,new Integer[] {Xcoord,Ycoord-XYvalue},0)) 
+					newFrame ← new frame(Xcoord,Ycoord-XYvalue,b[Xcoord][Ycoord-XYvalue],getDirections(Xcoord, Ycoord-XYvalue, b[Xcoord][Ycoord-XYvalue], d, goingthere),goingthere)
+					frameStack.push(newFrame)
+					CONTINUE
+				ENDIF
+			ENDIF
+		ENDIF
+		
+		IF(lastdirection='w') 
+			IF(b[Xcoord][Ycoord+XYvalue]=0) 
+					RETURN TRUE			
+				IF(!inAlist(goingthere,new Integer[] {Xcoord,Ycoord+XYvalue},0))
+					newFrame ← new frame(Xcoord,Ycoord+XYvalue,b[Xcoord][Ycoord+XYvalue],getDirections(Xcoord, Ycoord+XYvalue, b[Xcoord][Ycoord+XYvalue], d, goingthere),goingthere)
+					frameStack.push(newFrame)
+					CONTINUE
+				ENDIF
+			ENDIF
+		ENDIF
+			
+	ENDWHILE
+	
+	RETURN FALSE
