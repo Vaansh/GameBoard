@@ -99,7 +99,8 @@ OUTPUT True/false value of the board being solvable.
 			IF(b[Xcoord-XYvalue][Ycoord]=0) 
 					RETURN TRUE			
 				IF(!inAlist(goingthere,new Integer[] {Xcoord-XYvalue,Ycoord},0)) 
-					newFrame ← new frame(Xcoord-XYvalue,Ycoord,b[Xcoord-XYvalue][Ycoord],getDirections(Xcoord-XYvalue, Ycoord, b[Xcoord-XYvalue][Ycoord], d, goingthere),goingthere)
+					newFrame ← new frame(Xcoord-XYvalue,Ycoord,b[Xcoord-XYvalue][Ycoord],
+					getDirections(Xcoord-XYvalue, Ycoord, b[Xcoord-XYvalue][Ycoord], d, goingthere),goingthere)
 					frameStack.push(newFrame)
 					CONTINUE
 				ENDIF
@@ -110,7 +111,8 @@ OUTPUT True/false value of the board being solvable.
 			IF(b[Xcoord+XYvalue][Ycoord]=0) 
 					RETURN TRUE			
 				IF(!inAlist(goingthere,new Integer[] {Xcoord+XYvalue,Ycoord},0)) 
-					newFrame ← new frame(Xcoord+XYvalue,Ycoord,b[Xcoord+XYvalue][Ycoord],getDirections(Xcoord+XYvalue, Ycoord, b[Xcoord+XYvalue][Ycoord], d, goingthere),goingthere)
+					newFrame ← new frame(Xcoord+XYvalue,Ycoord,b[Xcoord+XYvalue][Ycoord],
+					getDirections(Xcoord+XYvalue, Ycoord, b[Xcoord+XYvalue][Ycoord], d, goingthere),goingthere)
 					frameStack.push(newFrame)
 					CONTINUE
 				ENDIF
@@ -121,7 +123,8 @@ OUTPUT True/false value of the board being solvable.
 			IF(b[Xcoord][Ycoord]=0) 
 					RETURN TRUE			
 				IF(!inAlist(goingthere,new Integer[] {Xcoord,Ycoord-XYvalue},0)) 
-					newFrame ← new frame(Xcoord,Ycoord-XYvalue,b[Xcoord][Ycoord-XYvalue],getDirections(Xcoord, Ycoord-XYvalue, b[Xcoord][Ycoord-XYvalue], d, goingthere),goingthere)
+					newFrame ← new frame(Xcoord,Ycoord-XYvalue,b[Xcoord][Ycoord-XYvalue],
+					getDirections(Xcoord, Ycoord-XYvalue, b[Xcoord][Ycoord-XYvalue], d, goingthere),goingthere)
 					frameStack.push(newFrame)
 					CONTINUE
 				ENDIF
@@ -132,7 +135,8 @@ OUTPUT True/false value of the board being solvable.
 			IF(b[Xcoord][Ycoord+XYvalue]=0) 
 					RETURN TRUE			
 				IF(!inAlist(goingthere,new Integer[] {Xcoord,Ycoord+XYvalue},0))
-					newFrame ← new frame(Xcoord,Ycoord+XYvalue,b[Xcoord][Ycoord+XYvalue],getDirections(Xcoord, Ycoord+XYvalue, b[Xcoord][Ycoord+XYvalue], d, goingthere),goingthere)
+					newFrame ← new frame(Xcoord,Ycoord+XYvalue,b[Xcoord][Ycoord+XYvalue],
+					getDirections(Xcoord, Ycoord+XYvalue, b[Xcoord][Ycoord+XYvalue], d, goingthere),goingthere)
 					frameStack.push(newFrame)
 					CONTINUE
 				ENDIF
