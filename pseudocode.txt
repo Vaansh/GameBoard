@@ -1,6 +1,6 @@
 Recursive version:
 
-ALGORITHM magic(b, x, y, goingthere)
+ALGORITHM pathfinder(b, x, y, goingthere)
 INPUT board b (2d array) starting coordinates x,y and empty going there array list to keep track of path.
 OUTPUT True/false value of the board being solvable.
 
@@ -27,26 +27,26 @@ OUTPUT True/false value of the board being solvable.
 		right←y+circle;
 			
 		IF(down<b.length) 
-			IF(magic(b,down,y, goingthere)) 
+			IF(pathfinder(b,down,y, goingthere)) 
 				RETURN TRUE
 			ENDIF
 		ENDIF
 	
 			
 		IF(up>-1) {
-			IF(magic(b,up,y,goingthere))
+			IF(pathfinder(b,up,y,goingthere))
 				RETURN TRUE
 			ENDIF
 		ENDIF
 		
 		IF(right<b.length) 
-			IF(magic(b,x,right,goingthere))
+			IF(pathfinder(b,x,right,goingthere))
 				RETURN TRUE
 			ENDIF
 		ENDIF
 		
 		IF(left>-1) 
-			IFmagic(b,x,left,goingthere))
+			pathfinder(b,x,left,goingthere))
 				RETURN TRUE
 			ENDIF
 		ENDIF
@@ -57,7 +57,7 @@ OUTPUT True/false value of the board being solvable.
 
 Iterative version:
 
-ALGORITHM magic(b, x, y, goingthere)
+ALGORITHM pathfinder(b, x, y, goingthere)
 INPUT board b (2d array) starting coordinates x,y and empty going there array list to keep track of path.
 OUTPUT True/false value of the board being solvable.
 	
