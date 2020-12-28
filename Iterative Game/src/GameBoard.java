@@ -197,7 +197,8 @@ public class MagicBoard {
 				}
 				//If new coordinate is not in visited path, push it onto stack and continue.
 				if( !inAlist(goingthere,new Integer[] {Xcoord-XYvalue,Ycoord},0)) {				
-					newFrame = new frame(Xcoord-XYvalue,Ycoord,b[Xcoord-XYvalue][Ycoord],getDirections(Xcoord-XYvalue, Ycoord, b[Xcoord-XYvalue][Ycoord], d, goingthere),goingthere);
+					newFrame = new frame(Xcoord-XYvalue,Ycoord,b[Xcoord-XYvalue][Ycoord],
+							     getDirections(Xcoord-XYvalue, Ycoord, b[Xcoord-XYvalue][Ycoord], d, goingthere),goingthere);
 					frameStack.push(newFrame);
 					continue;
 				}
@@ -211,7 +212,8 @@ public class MagicBoard {
 				}	
 				//If new coordinate is not in visited path, push it onto stack and continue.
 				if(!inAlist(goingthere,new Integer[] {Xcoord+XYvalue,Ycoord},0)) {
-					newFrame = new frame(Xcoord+XYvalue,Ycoord,b[Xcoord+XYvalue][Ycoord],getDirections(Xcoord+XYvalue, Ycoord, b[Xcoord+XYvalue][Ycoord], d, goingthere),goingthere);
+					newFrame = new frame(Xcoord+XYvalue,Ycoord,b[Xcoord+XYvalue][Ycoord],
+							     getDirections(Xcoord+XYvalue, Ycoord, b[Xcoord+XYvalue][Ycoord], d, goingthere),goingthere);
 					frameStack.push(newFrame);
 					continue;
 				}
@@ -225,7 +227,8 @@ public class MagicBoard {
 				}
 				//If new coordinate is not in visited path, push it onto stack and continue.
 				if( !inAlist(goingthere,new Integer[] {Xcoord,Ycoord-XYvalue},0)) { 
-					newFrame = new frame(Xcoord,Ycoord-XYvalue,b[Xcoord][Ycoord-XYvalue],getDirections(Xcoord, Ycoord-XYvalue, b[Xcoord][Ycoord-XYvalue], d, goingthere),goingthere);
+					newFrame = new frame(Xcoord,Ycoord-XYvalue,b[Xcoord][Ycoord-XYvalue],
+							     getDirections(Xcoord, Ycoord-XYvalue, b[Xcoord][Ycoord-XYvalue], d, goingthere),goingthere);
 					frameStack.push(newFrame);					
 					continue;
 				}
@@ -239,7 +242,8 @@ public class MagicBoard {
 				}				
 				//If new coordinate is not in visited path, push it onto stack and continue.
 				if( !inAlist(goingthere,new Integer[] {Xcoord,Ycoord+XYvalue},0)) { 
-					newFrame = new frame(Xcoord,Ycoord+XYvalue,b[Xcoord][Ycoord+XYvalue],getDirections(Xcoord, Ycoord+XYvalue, b[Xcoord][Ycoord+XYvalue], d, goingthere),goingthere);
+					newFrame = new frame(Xcoord,Ycoord+XYvalue,b[Xcoord][Ycoord+XYvalue],
+							     getDirections(Xcoord, Ycoord+XYvalue, b[Xcoord][Ycoord+XYvalue], d, goingthere),goingthere);
 					frameStack.push(newFrame);
 					continue;
 				}
